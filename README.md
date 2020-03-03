@@ -1,5 +1,5 @@
 # k3-cohort
-<h2>It is a website that designed for k3 cohort. The home page is used to register and login. The user can login by fill his/her username and password in the form, when he/she login, the k3 member information will displayed to him on the second page of the website. </h2>
+<p>It is a website that designed for k3 cohort. The home page is used to register and login. The user can login by fill his/her username and password in the form, when he/she login, the k3 member information will displayed to him on the second page of the website. </p>
 
 <a href=>K3 Cohort</a>
 
@@ -18,44 +18,12 @@ As a user i should be able to sign in  and i can check k3 members.</p>
 
 </ol>
 
-<h3>File Structure:</h3>
-<p>
-   - public
-     - acounts
-        - index.js
-        - index.css
-        - index.html
-      - k3-info
-        - k3Info.css
-        - k3Info.html
-        - k3Info.js
-- server
- - controllers 
-    - authontication
-       - index.js
-    - error.js
-    - helpers.js
-    - index.js
- - models
-    - database
-       - queries
-          - getData.js
-          - postData.js
-       - build.js
-       - build.sql
-       - connection.js
- - routes
-    - index.js
- - app.js
- - index.js</p>
 
 <h3>DB Schema:</h3>
 <img src="https://user-images.githubusercontent.com/55299644/75762882-133ac780-5d44-11ea-9f28-920900094b49.png">
 
 <h3>Team</h3>
-<ul>
-<li>Abood</li>
-<li>Duha</li>
-<li>Hanan</li>
-<li>Tasneem</li>
-</ul>
+- [Tasneem](https://github.com/tasneembhiri)
+- [Hanan](https://github.com/Hanan795)
+- [Duha](https://github.com/Duha96)
+- [Abood](https://github.com/aboodswiti)
