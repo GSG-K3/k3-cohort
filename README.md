@@ -1,8 +1,6 @@
 # k3-cohort
 <p>It is a website that designed for k3 cohort. The home page is used to register and login. The user can login by fill his/her username and password in the form, when he/she login, the k3 member information will displayed to him on the second page of the website. </p>
 
-<a href=>K3 Cohort</a>
-
 <h3>User Journy:</h3>
 <p>As a user i should be able to sign up in this website.<br>
 As a user i should be able to sign in  and i can check k3 members.</p>
