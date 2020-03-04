@@ -7,6 +7,7 @@ const getData = require('../models/database/queries/getData')
 const dbData = require('../models/database/build')
 const bodyparser =require("body-parser")
 const { Router } = express; //Here we destructure (ES6) the Router value off of express
+const checkUser = require('../controllors/authontication/login_auth')
 
 const router = Router();
 router.use(bodyparser.json())
@@ -49,7 +50,16 @@ router.get('/getk3info',(req,response)=> {
 
 })
 
+
 })
+
+router.post('/login', (req,res)=>{
+    const reqBody = req.body;
+    const test = checkUser(reqBody);
+    console.log(typeof test);
+            res.sendFile(path.join(__dirname, '..', '..', 'public', 'k3-info', 'k3Info.html'))
+})
+
 router.get('/k3info',(req,res)=>{
     res.sendFile(path.join(__dirname, '..','..', 'public','k3-info', 'k3Info.html'))
 })

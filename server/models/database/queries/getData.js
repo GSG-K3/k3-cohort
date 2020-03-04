@@ -8,5 +8,16 @@ const getData = callback => {
 })
 }
 
+const checkEmail = email => {
+    const getSql = {
+        text: `select * from user1 where email = ($1)`,
+        value: [email]
+    }
+    
+    return connection
+    .query(getSql,[email])
+    .then(res => res.rows[0])
+    .catch(err => console.log(err))
+}
 
-module.exports = getData;
+module.exports = {getData, checkEmail};
