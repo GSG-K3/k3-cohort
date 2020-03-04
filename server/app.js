@@ -7,7 +7,7 @@ const router = require("./routes/routes");
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "..", "public", "accounts")));
+app.use(express.static(path.join(__dirname, "..","..", "k3-cohort")));
 app.use(cookieParser());
 app.use(router);
 
