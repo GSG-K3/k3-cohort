@@ -1,5 +1,10 @@
 const express = require('express');
+const path = require('path')
+const fs = require('fs')
+
 const postData = require('../models/database/queries/postData')
+const getData = require('../models/database/queries/getData')
+const dbData = require('../models/database/build')
 const bodyparser =require("body-parser")
 const { Router } = express; //Here we destructure (ES6) the Router value off of express
 
@@ -24,5 +29,29 @@ router.post('/signup' , (req,res)=>{
 // router.get('/', (req,res)=>{
 //     res.send(",jsbdksaj")
 // })
+
+// router.get('/create', (req,response) => {
+//     dbData.readDbBuild((err,res) => {
+//         if(err) {console.log(err,'unsuccessful connection')}
+//         else {response.send(res)}
+//         console.log("bbbb",res.rows)
+//     })
+// })
+
+router.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname, '..','..', 'public','accounts', 'index.html'))
+})
+
+router.get('/getk3info',(req,response)=> {
+    getData((err,res) => {
+    if(err) {console.log(err,'unsuccessful connection')}
+    else {response.send(res)}
+
+})
+
+})
+router.get('/k3info',(req,res)=>{
+    res.sendFile(path.join(__dirname, '..','..', 'public','k3-info', 'k3Info.html'))
+})
 
 module.exports = router;
