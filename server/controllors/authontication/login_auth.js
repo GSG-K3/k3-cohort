@@ -1,42 +1,37 @@
 const bcrypt = require("bcrypt");
-const checkEmail = require("../../models/database/queries/getData");
-const postData = require("../../models/database/queries/postData");
+const emailAuthentication = require("../../models/database/queries/emailAuthentication");
 const jwt = require('jsonwebtoken');
 const alert = require('alert-node')
 
-const checkUser = (req, res)=>{
-    const {email, pass} = req;
-    checkEmail(email)
+const checkUser = (req, res, next)=>{
+    const {email, pass}=req.body;
+    emailAuthentication(email)
     .then(data => {
-        if (data != undefined)
+        if (data)
         {
-            bcrypt.compare(pass, data.pass, (err, result) => {
+            let hashPassword = data.password;
+            bcrypt.compare(pass, hashPassword, (err, result) => {
                 if(err) console.log(err)
                 if(result){
-                    const token = jwt.sign({email: email}, process.env.SECRET);
-                    console.log(token)
-                    res.cookie('token', token, { maxAge: 9999999})
-                    return jwt.verify(token, SECRET); 
+                    let token = jwt.sign({email: email}, process.env.SECRET);
+                    res.cookie('token', token);
+                    next()
                 } 
                 else {
                     alert("Incorrect Password") 
-                    return false;
+                    return;
                 }      
             })
-            }
-            else
-            {
-            alert("email not found");
-            return false
         }
 
-        })
-        .catch(console.log)
-
+        else
+        {
+            alert("email not found");
+            return;
+        }
+    })
+    .catch(console.log)
 }
-
-
-
 
 module.exports = checkUser;
 

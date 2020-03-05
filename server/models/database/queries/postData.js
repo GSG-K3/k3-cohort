@@ -1,33 +1,30 @@
-const connection = require("./../connection")
+const connection = require("../connection")
 const bcrypt = require("bcryptjs");
-const crypto = require("crypto");
 
+const hashPassword = (plainPassword, cb) => {
+    bcrypt.hash(plainPassword, 10, (err, hash) => {
+        cb(err, hash)
+    })
+}
 
 const postData = (reqBody) => {
-console.log("ddddd",reqBody)
 
 const {userNameSignup , email , password} = reqBody;
 
-const randomString = crypto.randomBytes(12).toString('hex');
-const hashPassword = crypto.createHash('sha256').update(randomString + password).digest('hex')
-
-
- sql = {
-     text: 'INSERT INTO users (name  ,email, password) VALUES ($1,$2,$3);',
-     values: [userNameSignup, email, hashPassword]
-     
- }
-     console.log("sqqqll",sql)
-
- connection.query(sql.text,sql.values,(error,results) => {
-     if (error){
-         throw error;
-         
-     }
- } 
- )};
+hashPassword(password, (err, hash) => {
+    sql = {
+        text: 'INSERT INTO users (name  ,email, password) VALUES ($1,$2,$3);',
+        values: [userNameSignup, email, hash]
+        
+    };
+   
+    connection.query(sql.text,sql.values,(error,results) => {
+        if (error){
+            throw error;    
+        }
+    });
+})
  
-
-
-
+};
+ 
 module.exports = postData;

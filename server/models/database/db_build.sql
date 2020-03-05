@@ -17,11 +17,19 @@ CREATE TABLE student
 INSERT INTO student
     (name,city,email,specialized)
 VALUES
-    ('abood', 'dura','abood@gmail.com', 'electrical engineering'),
+    ('abood', 'Dura','abood@gmail.com', 'electrical engineering'),
     ('duha', 'bani-naim','duha@gmail.com', 'computer engineering'),
-    ('tasneem', 'dura','aboofjffd@gmail.com', 'computer engineering'),
-    ('hanan', 'dura','abkcood@gmail.com', 'computer engineering'),
-    ('soso', 'dura','abokod@gmail.com', 'computer engineering');
+    ('tasneem', 'Halhul','tasneem@gmail.com', 'computer engineering'),
+    ('hanan', 'Dura','hanan@gmail.com', 'computer engineering'),
+    ('Bebo', 'hebron','bayan@gmail.com', 'computer engineering'),
+    ('Hussein', 'Dura','hussein@gmail.com', 'IT'),
+    ('rahaf', 'samoo3','rahaf@gmail.com', 'computer engineering'),
+    ('Beno', 'hebron','beno@gmail.com', 'accounting'),
+    ('Karmel', 'Bethlehem','karmel@gmail.com', 'Hebrew'),
+    ('sahar', 'soureef','dahar@gmail.com', 'computer engineering');
+
+
+
     -- ('duha', 'dha@gmail.com', 'duha1996');
     
  COMMIT;

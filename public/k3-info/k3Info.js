@@ -23,9 +23,41 @@ if(res.length === 0) {
     k3DB.innerHTML = "There is no any orders to show";
     container.appendChild(k3DB);
 
-} else document.getElementById("hh1").innerHTML = res[0].name;
+} else {
+    res.forEach( element=> {
+        console.log(element.name);
+        
+        const infoContainer = document.createElement('div');
+        infoContainer.classList.add("info-name");
+           const student_name = document.createElement('h2');
+           student_name.classList.add('student_name');
 
-})
+           student_name.innerHTML = element.name ;
+           student_name.style.color = 'rgb(79, 73, 73)';
+           infoContainer.appendChild(student_name);
+           container.appendChild(infoContainer);
+
+           const city = document.createElement('h4');
+           city.innerHTML = 'City name: '+ element.city;
+           infoContainer.appendChild(city);
+           container.appendChild(infoContainer);
+
+           const specialized = document.createElement('h4');
+           specialized.innerHTML = 'Specialized: '+ element.specialized;
+           infoContainer.appendChild(specialized);
+           container.appendChild(infoContainer);
+
+           const email = document.createElement('h4');
+           email.innerHTML = 'Email : '+ element.email;
+           infoContainer.appendChild(email);
+           container.appendChild(infoContainer);
+
+
+
+    }
+    )
+
+}})
 }
 
 window.addEventListener('load',()=>{
