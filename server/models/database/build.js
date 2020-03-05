@@ -14,13 +14,13 @@ runDbBuild((err, res) => {
     return res;
 });
 
-const readDbBuild = cb => dbConnection.query(sql1, cb);
+// const readDbBuild = cb => dbConnection.query(sql1, cb);
 
-readDbBuild((err, res) => {
-    if (err) {
-        throw err;
-    }
-    return res;
-});
-
-module.exports = {runDbBuild , readDbBuild};
+// readDbBuild((err, res) => {
+//     if (err) {
+//         throw err;
+//     }
+//     return res;
+// });
+// module.exports = {runDbBuild , readDbBuild};
+module.exports = runDbBuild;
